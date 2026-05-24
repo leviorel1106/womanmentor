@@ -1,0 +1,1383 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>נויה כהן - אסטרטגית עסקית ומלווה נשים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --black-deep:#0B0B0B;
+    --black:#111111;
+    --white:#FFFFFF;
+    --off-white:#F7F6F2;
+    --warm-gray:#EFEDE7;
+    --border:#E4E0D6;
+    --border-dark:#2a2a2a;
+    --body:#555555;
+    --body-soft:#7a7770;
+    --gold:#C9A14A;
+    --gold-dark:#A9822F;
+    --gold-soft:rgba(201,161,74,.15);
+
+    --maxw:1160px;
+    --pad-d:80px;
+    --pad-m:48px;
+    --radius:6px;
+    --radius-card:14px;
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Rubik",system-ui,sans-serif;
+    color:var(--black);
+    background:var(--white);
+    font-size:17px;
+    font-weight:500;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .section{padding:var(--pad-d) 0}
+  .section--black{background:var(--black);color:#eae6dc}
+  .section--off{background:var(--off-white)}
+
+  /* ===== Typography ===== */
+  h1,h2,h3,h4{font-weight:800;line-height:1.15;margin:0;letter-spacing:-0.01em}
+  h1{font-size:clamp(34px,5vw,60px)}
+  h2{font-size:clamp(30px,3.8vw,46px)}
+  h3{font-size:clamp(24px,2.6vw,30px)}
+  h4{font-size:18px;font-weight:700}
+  p{margin:0;color:var(--body);line-height:1.75;font-weight:500}
+  .section--black p{color:#bdb8aa}
+
+  .eyebrow{
+    display:inline-block;
+    font-size:15px;
+    letter-spacing:.14em;
+    font-weight:800;
+    color:var(--gold);
+    text-transform:uppercase;
+  }
+  .eyebrow--soft{
+    color:var(--gold);
+    font-size:17px;
+    letter-spacing:.04em;
+    text-transform:none;
+    font-weight:700;
+  }
+  .divider-gold{
+    width:56px;height:2px;background:var(--gold);margin:22px auto;border-radius:2px;
+  }
+
+  /* ===== Buttons ===== */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    height:52px;padding:0 28px;
+    background:var(--gold);color:#fff;
+    border:none;border-radius:var(--radius);
+    font-weight:700;font-size:16px;
+    transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
+    box-shadow:0 6px 18px -10px rgba(201,161,74,.7);
+    white-space:nowrap;
+  }
+  .btn:hover{background:var(--gold-dark);transform:translateY(-2px);box-shadow:0 12px 24px -12px rgba(169,130,47,.7)}
+  .btn svg{width:18px;height:18px;flex-shrink:0;transition:transform .25s ease}
+  .btn:hover svg{transform:translateX(-4px)} /* RTL: arrow on left moves left on hover */
+  .btn--ghost{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+  .btn--ghost:hover{background:var(--gold);color:#fff}
+
+  /* ===== Nav ===== */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.86);
+    backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav__inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.02em}
+  .brand__mark{
+    width:42px;height:42px;border-radius:50%;
+    background:var(--black);
+    display:grid;place-items:center;
+    border:1px solid var(--gold);
+    overflow:hidden;
+    flex-shrink:0;
+  }
+  .brand__mark img{width:32px;height:32px;object-fit:contain;filter:brightness(1.4) contrast(1.3)}
+  .nav__links{display:flex;gap:32px;font-size:15px;color:#222;font-weight:600}
+  .nav__links a{position:relative;padding:6px 0}
+  .nav__links a:hover{color:var(--gold-dark)}
+  .nav__cta .btn{height:42px;padding:0 18px;font-size:14px}
+  @media (max-width:880px){
+    .nav__links{display:none}
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    padding:90px 0 100px;
+    overflow:hidden;
+    background:
+      linear-gradient(to bottom, rgba(247,246,242,.55), rgba(247,246,242,.7)),
+      url("https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1800&q=80&auto=format&fit=crop") center/cover no-repeat;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(80% 60% at 50% 20%, rgba(255,255,255,.25), transparent 75%);
+    pointer-events:none;
+  }
+  .hero__grid{
+    position:relative;z-index:2;
+    display:grid;
+    grid-template-columns: 1fr 360px;
+    gap:60px;align-items:center;
+  }
+  .hero__copy{text-align:center}
+  .hero__copy .eyebrow{margin-bottom:18px}
+  .hero h1{margin:8px 0 22px;color:var(--black-deep)}
+  .hero h1 .accent{color:var(--gold-dark)}
+  .hero__sub{max-width:560px;margin:0 auto 32px;font-size:18px;color:#444;font-weight:500}
+  .hero__cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .hero__meta{
+    display:flex;gap:28px;justify-content:center;margin-top:34px;
+    color:#5a5a5a;font-size:14px;flex-wrap:wrap;font-weight:600;
+  }
+  .hero__meta span{display:inline-flex;align-items:center;gap:8px}
+  .hero__meta span::before{
+    content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);
+  }
+
+  .portrait{
+    position:relative;width:360px;height:520px;justify-self:end;
+  }
+  .portrait__frame{
+    position:absolute;inset:0;
+    border-radius:180px 180px 16px 16px;
+    overflow:hidden;
+    border:1px solid var(--gold);
+    box-shadow:0 30px 60px -30px rgba(0,0,0,.25), 0 0 0 8px rgba(255,255,255,.6);
+  }
+  .portrait__frame img{width:100%;height:100%;object-fit:cover;object-position:center 18%}
+  .portrait__badge{
+    position:absolute;bottom:-14px;right:-14px;
+    background:#fff;border:1px solid var(--border);
+    padding:12px 16px;border-radius:12px;
+    display:flex;align-items:center;gap:10px;
+    box-shadow:0 16px 30px -18px rgba(0,0,0,.2);
+    font-size:13px;
+  }
+  .portrait__badge strong{font-weight:800}
+  .stars{display:inline-flex;gap:2px}
+  .stars svg{width:14px;height:14px;fill:var(--gold)}
+
+  @media (max-width:880px){
+    .hero{padding:60px 0 70px}
+    .hero__grid{grid-template-columns:1fr;gap:40px}
+    .portrait{justify-self:center;width:280px;height:400px;order:-1}
+    .portrait__frame{border-radius:140px 140px 14px 14px}
+  }
+
+  /* ===== Statement strip ===== */
+  .statement{padding:90px 0 80px;text-align:center;background:#fff}
+  .statement h2{max-width:880px;margin:0 auto;font-size:clamp(26px,3vw,38px);line-height:1.35;color:var(--black-deep)}
+  .statement h2 em{font-style:normal;color:var(--gold-dark)}
+
+  /* ===== Black pain section ===== */
+  .pain{
+    position:relative;color:#fff;
+    background:
+      radial-gradient(60% 50% at 50% 0%, rgba(201,161,74,.10), transparent 65%),
+      radial-gradient(80% 60% at 50% 100%, rgba(255,255,255,.04), transparent 60%),
+      var(--black);
+  }
+  .pain__head{text-align:center;max-width:780px;margin:0 auto 56px}
+  .pain__head h2{color:#fff;margin-top:14px}
+  .pain__grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:18px;
+  }
+  .pill{
+    display:flex;align-items:flex-start;gap:16px;
+    background:#161616;
+    border:1px solid var(--border-dark);
+    border-radius:14px;
+    padding:22px 24px;
+    transition:border-color .3s ease, transform .3s ease;
+  }
+  .pill:hover{border-color:var(--gold);transform:translateY(-3px)}
+  .pill__check{
+    flex-shrink:0;width:32px;height:32px;border-radius:50%;
+    background:var(--gold-soft);color:var(--gold);
+    display:grid;place-items:center;border:1px solid rgba(201,161,74,.5);
+  }
+  .pill__check svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:2.5}
+  .pill p{margin:0;color:#eae6dc;font-size:16px;line-height:1.55;padding-top:4px;font-weight:500}
+
+  .pain__foot{text-align:center;margin-top:54px}
+  .pain__foot p{max-width:760px;margin:0 auto 28px;color:#bdb8aa;font-size:17px}
+
+  @media (max-width:760px){
+    .pain__grid{grid-template-columns:1fr}
+  }
+
+  /* ===== Explanation section ===== */
+  .explain__grid{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:start;
+  }
+  .explain h2{color:var(--black-deep);margin-bottom:22px}
+  .explain p.lead{font-size:17px;color:#3f3f3f;margin-bottom:28px}
+  .explain__list{display:flex;flex-direction:column;gap:18px;margin-bottom:32px}
+  .mini-card{
+    display:flex;gap:18px;align-items:flex-start;
+    background:#fff;border:1px solid var(--border);
+    border-radius:12px;padding:22px;
+    box-shadow:0 6px 24px -16px rgba(0,0,0,.1);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .mini-card:hover{transform:translateY(-3px);box-shadow:0 16px 30px -16px rgba(0,0,0,.12)}
+  .mini-card__icon{
+    flex-shrink:0;width:64px;height:64px;border-radius:14px;
+    background:var(--off-white);border:1px solid var(--border);
+    display:grid;place-items:center;
+    overflow:hidden;
+  }
+  .mini-card__icon svg{width:22px;height:22px;stroke:var(--gold-dark);fill:none;stroke-width:1.5}
+  .mini-card__icon img{
+    width:54px;height:54px;object-fit:contain;
+    /* shift toward brand gold/black */
+    filter: grayscale(1) sepia(1) saturate(2.2) hue-rotate(-8deg) brightness(.92) contrast(1.05);
+  }
+  .mini-card h4{font-size:20px;margin:0 0 6px;color:var(--black-deep);font-weight:800}
+  .mini-card p{font-size:15px;color:#5d5d5d;margin:0;font-weight:500}
+
+  @media (max-width:880px){
+    .explain__grid{grid-template-columns:1fr;gap:36px}
+  }
+
+  /* ===== Vision (fit-for-you) ===== */
+  .vision{background:var(--off-white)}
+  .vision__head{text-align:center;max-width:760px;margin:0 auto 56px}
+  .vision__head h2{color:var(--black-deep);margin-bottom:14px}
+  .vision__grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:22px;
+  }
+  .vision__item{
+    position:relative;text-align:center;padding:30px 20px;
+    background:#fff;
+    border:1.5px solid #d6d1c3;
+    border-radius:16px;
+    box-shadow:0 1px 0 rgba(0,0,0,.02), 0 10px 24px -22px rgba(0,0,0,.18);
+    transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease, background .3s ease;
+    overflow:hidden;
+  }
+  .vision__item::before{
+    content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+    background:radial-gradient(120% 80% at 50% 0%, rgba(201,161,74,.12), transparent 60%);
+    opacity:0;transition:opacity .35s ease;
+  }
+  .vision__item:hover{
+    transform:translateY(-6px);
+    border-color:var(--gold);
+    background:#fffdf7;
+    box-shadow:
+      0 22px 40px -22px rgba(201,161,74,.45),
+      0 0 0 4px rgba(201,161,74,.10),
+      0 8px 20px -14px rgba(0,0,0,.18);
+  }
+  .vision__item:hover::before{opacity:1}
+  .vision__item:hover .vision__icon{
+    background:rgba(201,161,74,.20);
+    border-color:var(--gold);
+    box-shadow:0 6px 18px -8px rgba(201,161,74,.55);
+    transform:scale(1.06);
+  }
+  .vision__icon{
+    width:58px;height:58px;margin:0 auto 18px;border-radius:50%;
+    background:var(--gold-soft);
+    display:grid;place-items:center;border:1px solid rgba(201,161,74,.4);
+    transition:background .3s ease, border-color .3s ease, box-shadow .3s ease, transform .3s ease;
+  }
+  .vision__icon svg{width:24px;height:24px;stroke:var(--gold-dark);fill:none;stroke-width:1.6}
+
+  /* ===== Animated vision icons ===== */
+  .vicon{width:30px;height:30px;color:var(--gold-dark);overflow:visible}
+  .vicon path,.vicon line,.vicon polyline,.vicon polygon,.vicon circle,.vicon rect{
+    stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
+  }
+  .vicon .fill{fill:currentColor;stroke:none}
+
+  @keyframes vi-spin{to{transform:rotate(360deg)}}
+  @keyframes vi-tick{0%,100%{transform:rotate(0deg)}50%{transform:rotate(360deg)}}
+  @keyframes vi-pulse{0%,100%{transform:scale(.9);opacity:.45}50%{transform:scale(1.15);opacity:1}}
+  @keyframes vi-bar1{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+  @keyframes vi-bar2{0%,100%{transform:scaleY(.55)}50%{transform:scaleY(1)}}
+  @keyframes vi-bar3{0%,100%{transform:scaleY(.25)}50%{transform:scaleY(1)}}
+  @keyframes vi-breath{0%,100%{transform:scale(.92);opacity:.7}50%{transform:scale(1.12);opacity:1}}
+  @keyframes vi-ring{
+    0%{transform:scale(.4);opacity:.9}
+    100%{transform:scale(1.5);opacity:0}
+  }
+  @keyframes vi-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+
+  .vi-spin{animation:vi-spin 6s linear infinite;transform-origin:12px 12px}
+  .vi-tick{animation:vi-tick 3.5s ease-in-out infinite;transform-origin:12px 12px}
+  .vi-pulse{animation:vi-pulse 2.4s ease-in-out infinite;transform-origin:center}
+  .vi-ring{animation:vi-ring 2.4s ease-out infinite;transform-origin:12px 12px;transform-box:fill-box}
+  .vi-ring--delay{animation-delay:1.2s}
+  .vi-bar1{animation:vi-bar1 2.6s ease-in-out infinite;transform-origin:5px 20px;transform-box:fill-box}
+  .vi-bar2{animation:vi-bar2 2.6s ease-in-out -.2s infinite;transform-origin:12px 20px;transform-box:fill-box}
+  .vi-bar3{animation:vi-bar3 2.6s ease-in-out -.4s infinite;transform-origin:19px 20px;transform-box:fill-box}
+  .vi-breath{animation:vi-breath 3.2s ease-in-out infinite;transform-origin:12px 12px;transform-box:fill-box}
+  .vi-bob{animation:vi-bob 2.4s ease-in-out infinite}
+  .vi-bob--late{animation-delay:1.2s}
+  .vision__item p{font-size:15px;color:#3f3f3f;line-height:1.5;margin:0;font-weight:600}
+
+  @media (max-width:980px){.vision__grid{grid-template-columns:repeat(3,1fr)}}
+  @media (max-width:640px){.vision__grid{grid-template-columns:1fr 1fr;gap:14px}}
+  @media (max-width:420px){.vision__grid{grid-template-columns:1fr}}
+
+  /* ===== About black section ===== */
+  .about{
+    background:
+      radial-gradient(60% 80% at 100% 0%, rgba(201,161,74,.10), transparent 60%),
+      var(--black);
+    color:#fff;
+  }
+  .about__grid{
+    display:grid;grid-template-columns:1fr .9fr;gap:64px;align-items:center;
+  }
+  .about h2{color:#fff;margin:8px 0 22px;max-width:520px}
+  .about p{color:#bdb8aa;font-size:16px;margin-bottom:18px;font-weight:500}
+  .about h4{color:var(--gold);font-size:20px;margin:24px 0 14px;font-weight:800}
+  .about__list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+  .about__list li{
+    padding:12px 18px;border:1px solid var(--border-dark);
+    border-radius:10px;font-size:15px;color:#eae6dc;
+    background:rgba(255,255,255,.02);
+    position:relative;padding-right:38px;
+    font-weight:500;
+  }
+  .about__list li::before{
+    content:"";position:absolute;right:16px;top:50%;transform:translateY(-50%);
+    width:8px;height:8px;border-radius:50%;background:var(--gold);
+  }
+  .about__photo{
+    position:relative;height:540px;border-radius:16px;overflow:hidden;
+    border:1px solid var(--border-dark);
+    box-shadow:0 30px 60px -30px rgba(0,0,0,.5);
+  }
+  .about__photo img{width:100%;height:100%;object-fit:cover}
+  .about__photo::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(to top, rgba(0,0,0,.35), transparent 50%);
+  }
+
+  @media (max-width:880px){
+    .about__grid{grid-template-columns:1fr;gap:40px}
+    .about__photo{height:380px;order:-1}
+  }
+
+  /* ===== Testimonials ===== */
+  .tests{background:#fff;position:relative}
+  .tests__head{text-align:center;max-width:760px;margin:0 auto 50px}
+  .tests__head h2{color:var(--black-deep)}
+  .tests__viewport{position:relative;overflow:hidden}
+  .tests__track{
+    display:flex;gap:24px;
+    transition:transform .5s cubic-bezier(.22,.61,.36,1);
+  }
+  .test-card{
+    flex:0 0 calc((100% - 48px)/3);
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:32px 28px;
+    box-shadow:0 18px 40px -24px rgba(0,0,0,.12);
+    display:flex;flex-direction:column;gap:18px;
+  }
+  .test-card .stars svg{width:18px;height:18px}
+  .test-card p{font-size:16px;color:#3f3f3f;line-height:1.7;margin:0;flex-grow:1;font-weight:500}
+  .test-card cite{
+    font-style:normal;font-weight:700;color:var(--black-deep);
+    font-size:15px;display:flex;align-items:center;gap:10px;
+  }
+  .test-card cite::before{
+    content:"";width:28px;height:1px;background:var(--gold);
+  }
+  .tests__nav{
+    display:flex;justify-content:center;gap:14px;margin-top:36px;
+  }
+  .tests__btn{
+    width:44px;height:44px;border-radius:50%;
+    border:1px solid var(--border);background:#fff;color:#444;
+    display:grid;place-items:center;cursor:pointer;
+    transition:all .25s ease;
+  }
+  .tests__btn:hover{border-color:var(--gold);color:var(--gold-dark)}
+  .tests__btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+  .tests__dots{display:flex;gap:8px;align-items:center;justify-content:center;margin-top:18px}
+  .tests__dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:all .3s}
+  .tests__dot.is-active{background:var(--gold);width:24px;border-radius:4px}
+
+  @media (max-width:880px){
+    .test-card{flex:0 0 calc((100% - 24px)/2)}
+  }
+  @media (max-width:640px){
+    .test-card{flex:0 0 100%}
+  }
+
+  /* ===== Process section ===== */
+  .process{background:var(--off-white)}
+  .process__head{text-align:center;max-width:780px;margin:0 auto 50px}
+  .process__head h2{color:var(--black-deep)}
+  .process__grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:28px;
+  }
+  .pcard{
+    background:#fff;border:1px solid var(--border);border-radius:16px;
+    padding:38px 36px;
+    box-shadow:0 14px 32px -22px rgba(0,0,0,.12);
+  }
+  .pcard h3{color:var(--black-deep);margin-bottom:24px}
+  .pcheck{display:flex;flex-direction:column;gap:16px}
+  .pcheck li{display:flex;gap:14px;align-items:flex-start;list-style:none}
+  .pcheck__icon{
+    flex-shrink:0;width:26px;height:26px;border-radius:50%;
+    background:var(--gold-soft);color:var(--gold-dark);
+    display:grid;place-items:center;border:1px solid rgba(201,161,74,.4);
+  }
+  .pcheck__icon svg{width:12px;height:12px;stroke:var(--gold-dark);fill:none;stroke-width:2.5}
+  .pcheck__icon svg polyline{
+    stroke-dasharray:30;stroke-dashoffset:30;
+    transition:stroke-dashoffset .9s cubic-bezier(.55,.1,.25,1) .15s;
+  }
+  .pcard.in .pcheck li:nth-child(1) .pcheck__icon svg polyline{stroke-dashoffset:0;transition-delay:.1s}
+  .pcard.in .pcheck li:nth-child(2) .pcheck__icon svg polyline{stroke-dashoffset:0;transition-delay:.3s}
+  .pcard.in .pcheck li:nth-child(3) .pcheck__icon svg polyline{stroke-dashoffset:0;transition-delay:.5s}
+  .pcard.in .pcheck li:nth-child(4) .pcheck__icon svg polyline{stroke-dashoffset:0;transition-delay:.7s}
+  .pcheck li{transition:transform .3s ease}
+  .pcheck li:hover{transform:translateX(-4px)}
+  .pcheck li:hover .pcheck__icon{
+    background:var(--gold);box-shadow:0 0 0 5px rgba(201,161,74,.18);
+  }
+  .pcheck li:hover .pcheck__icon svg{stroke:#fff}
+  .pcheck__icon{transition:background .3s ease, box-shadow .3s ease}
+  .pcheck__icon svg{transition:stroke .3s ease}
+  .pcheck li span{font-size:16px;color:#333;line-height:1.55;padding-top:2px;font-weight:500}
+  .pcheck ul{list-style:none;padding:0;margin:0}
+
+  .steps{display:flex;flex-direction:column;gap:22px}
+  .step{display:flex;gap:18px;align-items:flex-start}
+  .step__num{
+    flex-shrink:0;font-size:36px;font-weight:800;color:var(--gold);
+    line-height:1;width:60px;height:60px;
+    border:1.5px solid rgba(201,161,74,.4);
+    border-radius:50%;
+    display:grid;place-items:center;
+    background:rgba(201,161,74,.06);
+    box-shadow:0 0 0 0 rgba(201,161,74,0);
+    transition:transform .35s ease, box-shadow .45s ease, background .35s ease, border-color .35s ease, color .35s ease;
+  }
+  .pcard.in .step:nth-child(1) .step__num{animation:numGlow 1.2s ease-out .2s both}
+  .pcard.in .step:nth-child(2) .step__num{animation:numGlow 1.2s ease-out .55s both}
+  .pcard.in .step:nth-child(3) .step__num{animation:numGlow 1.2s ease-out .9s both}
+  @keyframes numGlow{
+    0%{transform:scale(.7);opacity:0;box-shadow:0 0 0 0 rgba(201,161,74,0)}
+    55%{transform:scale(1.08);opacity:1;box-shadow:0 0 0 14px rgba(201,161,74,.16)}
+    100%{transform:scale(1);opacity:1;box-shadow:0 0 0 0 rgba(201,161,74,0)}
+  }
+  .step:hover .step__num{
+    transform:translateY(-3px) scale(1.05);
+    background:var(--gold);
+    color:#111;
+    border-color:var(--gold);
+    box-shadow:0 0 0 6px rgba(201,161,74,.18), 0 14px 26px -14px rgba(201,161,74,.6);
+  }
+  .step{padding:6px 0;transition:transform .3s ease}
+  .step:hover{transform:translateX(-3px)}
+  .step h4{font-size:20px;color:var(--black-deep);margin:0 0 6px;font-weight:800}
+  .step p{font-size:15px;color:#5d5d5d;margin:0;line-height:1.6;font-weight:500}
+
+  @media (max-width:880px){
+    .process__grid{grid-template-columns:1fr}
+    .pcard{padding:30px 24px}
+  }
+
+  /* ===== FAQ + Contact black ===== */
+  .dark-block{
+    background:
+      radial-gradient(80% 60% at 50% 0%, rgba(201,161,74,.08), transparent 60%),
+      var(--black);
+    color:#fff;
+  }
+  .faq__head, .form__head{text-align:center;max-width:780px;margin:0 auto 50px}
+  .faq__head h2{color:#fff;margin-bottom:14px}
+  .faq__head .eyebrow--soft{color:var(--gold)}
+  .faq{max-width:820px;margin:0 auto}
+  .faq__item{
+    border:1px solid var(--border-dark);border-radius:12px;
+    margin-bottom:14px;overflow:hidden;
+    transition:border-color .3s ease;
+    background:rgba(255,255,255,.02);
+  }
+  .faq__item.is-open{border-color:var(--gold)}
+  .faq__q{
+    width:100%;background:transparent;color:#fff;border:none;
+    padding:22px 26px;display:flex;justify-content:space-between;align-items:center;
+    font-size:17px;font-weight:600;text-align:right;font-family:inherit;
+  }
+  .faq__q:hover{color:var(--gold)}
+  .faq__icon{
+    width:32px;height:32px;border-radius:50%;border:1px solid var(--border-dark);
+    display:grid;place-items:center;color:var(--gold);
+    transition:transform .3s ease, border-color .3s ease;
+    flex-shrink:0;
+  }
+  .faq__icon svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5}
+  .faq__item.is-open .faq__icon{transform:rotate(180deg);border-color:var(--gold)}
+  .faq__a{
+    max-height:0;overflow:hidden;
+    transition:max-height .35s ease;
+  }
+  .faq__a-inner{padding:0 26px 24px;color:#bdb8aa;font-size:15.5px;line-height:1.7;font-weight:500}
+  .faq__cta{text-align:center;margin-top:38px}
+
+  /* ===== Contact form ===== */
+  .form-wrap{
+    max-width:760px;margin:60px auto 0;
+    background:#161616;border:1px solid var(--border-dark);
+    border-radius:18px;padding:44px 44px;
+  }
+  .form__head h2{color:#fff;margin-bottom:14px}
+  .form__head p{color:#bdb8aa}
+  .form-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px;
+  }
+  .field{display:flex;flex-direction:column;gap:8px}
+  .field--full{grid-column:1/-1}
+  .field label{font-size:13px;color:#bdb8aa;font-weight:700}
+  .field input, .field textarea{
+    background:transparent;border:1px solid var(--border-dark);
+    border-radius:8px;padding:14px 16px;color:#fff;
+    font-family:inherit;font-size:15px;font-weight:500;
+    transition:border-color .25s ease;
+  }
+  .field input:focus, .field textarea:focus{
+    outline:none;border-color:var(--gold);
+  }
+  .field textarea{min-height:88px;resize:vertical}
+  .form-grid .btn{margin-top:8px;width:100%;height:54px}
+
+  /* Consent checkbox */
+  .consent{margin-top:8px}
+  .consent__row{
+    display:flex;align-items:flex-start;gap:12px;
+    cursor:pointer;user-select:none;
+  }
+  .consent input{position:absolute;opacity:0;pointer-events:none}
+  .consent__box{
+    flex-shrink:0;width:22px;height:22px;border-radius:5px;
+    border:1.5px solid var(--border-dark);background:transparent;
+    display:grid;place-items:center;color:transparent;
+    transition:all .2s ease;margin-top:2px;
+  }
+  .consent__box svg{width:14px;height:14px}
+  .consent__row:hover .consent__box{border-color:var(--gold)}
+  .consent input:focus-visible + .consent__box{box-shadow:0 0 0 3px rgba(201,161,74,.35)}
+  .consent input:checked + .consent__box{
+    background:var(--gold);border-color:var(--gold);color:#111;
+  }
+  .consent__text{
+    font-size:12.5px;color:#bdb8aa;line-height:1.65;
+    font-weight:500;
+  }
+  .consent.is-invalid .consent__box{
+    border-color:#e08989;box-shadow:0 0 0 3px rgba(224,137,137,.18);
+  }
+
+  @media (max-width:640px){
+    .form-wrap{padding:32px 22px}
+    .form-grid{grid-template-columns:1fr}
+  }
+
+  /* ===== Brand board (footer-ish) ===== */
+  .board{background:#fff}
+  .board__head{text-align:center;margin-bottom:46px}
+  .board__head h3{color:var(--black-deep);margin-bottom:8px}
+  .board__head p{color:#777}
+  .board__grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+  }
+  .board__cell{
+    border:1px solid var(--border);border-radius:14px;
+    overflow:hidden;background:#fff;
+    min-height:180px;display:flex;flex-direction:column;
+  }
+  .board__cell--img{position:relative}
+  .board__cell--img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+  .board__cell--type{padding:24px;display:flex;flex-direction:column;justify-content:center;gap:14px;background:var(--off-white)}
+  .board__cell--type .typ-line{display:flex;flex-direction:column;gap:2px}
+  .board__cell--type .typ-line small{color:#888;font-size:12px}
+  .board__cell--type .typ-line strong{font-size:22px;font-weight:800;color:var(--black-deep)}
+  .board__cell--icons{padding:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:center;justify-items:center}
+  .board__cell--icons svg{width:30px;height:30px;stroke:var(--gold-dark);fill:none;stroke-width:1.5}
+
+  @media (max-width:860px){
+    .board__grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:480px){
+    .board__grid{grid-template-columns:1fr}
+  }
+
+  /* ===== Footer ===== */
+  .foot{
+    background:var(--black);color:#bdb8aa;padding:36px 0;
+    border-top:1px solid var(--border-dark);
+  }
+  .foot__inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;font-size:14px}
+  .foot__links{display:flex;gap:24px;font-weight:500}
+  .foot__links a{color:#bdb8aa;transition:color .25s ease}
+  .foot__credit{display:flex;align-items:center;gap:10px;color:#bdb8aa}
+  .foot__brand{
+    color:var(--gold);font-weight:700;letter-spacing:.04em;
+    padding:4px 10px;border:1px solid rgba(201,161,74,.5);border-radius:6px;
+    transition:all .25s ease;
+  }
+  .foot__brand:hover{background:var(--gold);color:#111;border-color:var(--gold)}
+  @media (max-width:640px){
+    .foot__inner{flex-direction:column;text-align:center}
+  }
+  .foot a:hover{color:var(--gold)}
+
+  /* ===== Mobile section padding ===== */
+  @media (max-width:760px){
+    .section{padding:var(--pad-m) 0}
+    .statement{padding:60px 0}
+    .form-grid .btn{height:50px}
+  }
+
+  /* ===== Scroll reveal ===== */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ===== About scroll-bright text ===== */
+  .about__copy .w{
+    color:rgba(255,255,255,.18);
+    transition:color .35s ease, text-shadow .35s ease;
+  }
+  .about__copy .w.lit{color:#fff;text-shadow:0 0 18px rgba(255,255,255,.08)}
+
+  /* ===== Floating WhatsApp ===== */
+  .wa-fab{
+    position:fixed;bottom:22px;left:22px;z-index:60;
+    width:60px;height:60px;border-radius:50%;
+    background:#25D366;color:#fff;
+    display:grid;place-items:center;
+    box-shadow:0 8px 24px -6px rgba(37,211,102,.55), 0 4px 14px rgba(0,0,0,.18);
+    transition:transform .25s ease, box-shadow .25s ease;
+    animation:waPulse 2.6s ease-in-out infinite;
+  }
+  .wa-fab:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 14px 30px -8px rgba(37,211,102,.65)}
+  .wa-fab svg{width:30px;height:30px;fill:#fff}
+  .wa-fab::before{
+    content:"";position:absolute;inset:-6px;border-radius:50%;
+    border:2px solid rgba(37,211,102,.55);
+    animation:waRing 2.6s ease-out infinite;
+    pointer-events:none;
+  }
+  @keyframes waPulse{0%,100%{box-shadow:0 8px 24px -6px rgba(37,211,102,.55), 0 0 0 0 rgba(37,211,102,.5)}50%{box-shadow:0 8px 24px -6px rgba(37,211,102,.55), 0 0 0 14px rgba(37,211,102,0)}}
+  @keyframes waRing{0%{transform:scale(.9);opacity:.7}100%{transform:scale(1.4);opacity:0}}
+  @media (max-width:640px){
+    .wa-fab{width:56px;height:56px;bottom:18px;left:18px}
+    .wa-fab svg{width:28px;height:28px}
+  }
+
+  /* ===== Cookie banner ===== */
+  .cookie{
+    position:fixed;bottom:22px;right:22px;z-index:60;
+    max-width:380px;background:#fff;border:1px solid var(--border);
+    border-radius:14px;padding:18px 20px;
+    box-shadow:0 24px 50px -20px rgba(0,0,0,.25), 0 10px 20px -10px rgba(0,0,0,.12);
+    transform:translateY(20px);opacity:0;pointer-events:none;
+    transition:opacity .4s ease, transform .4s ease;
+  }
+  .cookie.is-visible{opacity:1;transform:translateY(0);pointer-events:auto}
+  .cookie__title{font-weight:700;color:var(--black-deep);font-size:15px;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+  .cookie__title svg{width:18px;height:18px;color:var(--gold-dark)}
+  .cookie p{font-size:13.5px;color:#5d5d5d;line-height:1.55;margin:0 0 12px;font-weight:500}
+  .cookie p a{color:var(--gold-dark);text-decoration:underline}
+  .cookie__row{display:flex;gap:8px}
+  .cookie__row .btn{height:40px;padding:0 16px;font-size:13.5px;flex:1}
+  .cookie__row .btn--ghost{background:#fff;color:#444;border:1px solid var(--border)}
+  .cookie__row .btn--ghost:hover{background:var(--off-white);color:var(--black-deep);border-color:#cfcabd}
+  @media (max-width:640px){
+    .cookie{right:12px;left:12px;bottom:88px;max-width:none}
+  }
+
+  /* ===== Mobile polish (additive) ===== */
+  @media (max-width:760px){
+    .nav__inner{height:62px}
+    .brand span{font-size:15px}
+    .hero__cta .btn{flex:1;min-width:160px}
+    .hero__sub{font-size:16.5px}
+    .hero__meta{gap:18px;font-size:13px}
+    .form-wrap{margin-top:36px;padding:28px 18px}
+    .pcard{padding:26px 20px}
+    .test-card{padding:26px 22px}
+    .pain__grid{gap:12px}
+    .pill{padding:18px 18px}
+    .faq__q{padding:18px 20px;font-size:16px}
+    .faq__a-inner{padding:0 20px 20px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="#top">
+      <div class="brand__mark"><img src="images/noya-mark.png" alt="" /></div>
+      <span>נויה כהן</span>
+    </a>
+    <div class="nav__links">
+      <a href="#about">עליי</a>
+      <a href="#process">תהליך</a>
+      <a href="#testimonials">לקוחות</a>
+      <a href="#faq">שאלות נפוצות</a>
+      <a href="#contact">יצירת קשר</a>
+    </div>
+    <div class="nav__cta">
+      <a href="#contact" class="btn">
+        <span>לשיחת היכרות</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="wrap hero__grid">
+    <div class="hero__copy reveal" style="font-weight: 600">
+      <span class="eyebrow" style="font-weight: 700; font-family: Rubik; font-size: 17px">גם את מרגישה שיש לך הרבה לתת - אבל העסק עדיין לא מספיק ברור?</span>
+      <h1 style="font-family: Rubik">הגיע הזמן <br/>להפוך את הידע שלך<br/>לעסק <span class="accent">ברור, מדויק ורווחי</span></h1>
+      <p class="hero__sub" style="font-family: Rubik; font-weight: 500">ליווי אישי 1:1 לנשים עצמאיות שרוצות לבנות עסק שמרגיש נכון, מוכר נכון ומכניס באופן יציב.</p>
+      <div class="hero__cta">
+        <a href="#contact" class="btn">
+          <span>אני רוצה שיחה איתך</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        </a>
+        <a href="#process" class="btn">
+          <span>קראי על התהליך</span>
+        </a>
+      </div>
+      <div class="hero__meta">
+        <span>ליווי אישי 1:1</span>
+        <span>מעל 8 שנות ניסיון</span>
+        <span>מאות לקוחות מרוצות</span>
+      </div>
+    </div>
+
+    <div class="portrait reveal">
+      <div class="portrait__frame">
+        <img src="images/noya-hero.png" alt="נויה כהן - אסטרטגית עסקית" />
+      </div>
+      <div class="portrait__badge">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div><strong>5.0</strong> · לקוחות מדורגות</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ STATEMENT ============ -->
+<section class="statement reveal">
+  <div class="wrap">
+    <h2>אני עוזרת לנשים כמוך להוציא את הידע והשליחות שלהן <em>לעסק מצליח, יציב ורווחי.</em></h2>
+    <div class="divider-gold"></div>
+  </div>
+</section>
+
+<!-- ============ PAIN / BLACK ============ -->
+<section class="section section--black pain">
+  <div class="wrap">
+    <div class="pain__head reveal">
+      <span class="eyebrow--soft">הליווי כולל את כל מה שאת צריכה</span>
+      <h2>כדי להקים עסק מדויק ומכניס:</h2>
+    </div>
+
+    <div class="pain__grid">
+      <div class="pill reveal"><div class="pill__check"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p>דיוק המסרים והצעת הערך של העסק</p></div>
+      <div class="pill reveal"><div class="pill__check"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p>ליווי אישי ותוכנית עבודה לאורך כל הדרך</p></div>
+      <div class="pill reveal"><div class="pill__check"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p>בניית תשתית עסקית יציבה ומדויקת</p></div>
+      <div class="pill reveal"><div class="pill__check"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p>אסטרטגיית שיווק ומכירה שמביאה לקוחות</p></div>
+      <div class="pill reveal"><div class="pill__check"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p>סדר, בהירות ותיעדוף במקום עומס ובלבול</p></div>
+      <div class="pill reveal"><div class="pill__check"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p>תהליך פרקטי שמוביל לתוצאות אמיתיות</p></div>
+    </div>
+
+    <div class="pain__foot reveal">
+      <p>בלי בלבול, בלי ניחושים ובלי לבזבז זמן וכסף על מה שלא עובד. תהליך ממוקד, פרקטי ואישי שמוביל אותך לתוצאות אמיתיות.</p>
+      <a href="#contact" class="btn">
+        <span>בואי נתחיל</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPLANATION ============ -->
+<section class="section explain">
+  <div class="wrap explain__grid">
+    <div class="reveal">
+      <span class="eyebrow">השיטה</span>
+      <h2>תוך כדי תהליך הליווי תגלי איך לבנות עסק שעובד בשבילך 24/7</h2>
+      <p class="lead">נלמד את העסק שלך לעומק, נדייק את ההצעה, נבנה מסרים שמביאים לקוחות באופן טבעי, וניצור תוכנית פעולה שמאפשרת לך להתקדם בצורה ברורה ובטוחה.</p>
+      <a href="#contact" class="btn">
+        <span>אני רוצה לבנות עסק רווחי</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      </a>
+    </div>
+
+    <div class="explain__list">
+      <div class="mini-card reveal">
+        <div class="mini-card__icon">
+          <img src="assets/icon-b.gif" alt="דיוק" />
+        </div>
+        <div>
+          <h4>דיוק</h4>
+          <p>נבין מה בדיוק את רוצה לבנות, מי הקהל שלך, ומה המסר הנכון שיוביל אותו לפעולה.</p>
+        </div>
+      </div>
+      <div class="mini-card reveal">
+        <div class="mini-card__icon">
+          <img src="assets/icon-a.gif" alt="מערכת עסקית" />
+        </div>
+        <div>
+          <h4>מערכת עסקית</h4>
+          <p>נסדר את התהליך השיווקי והמכירתי שלך כך שיהיה פשוט, ברור וניתן להפעלה.</p>
+        </div>
+      </div>
+      <div class="mini-card reveal">
+        <div class="mini-card__icon">
+          <img src="assets/icon-c.gif" alt="תוצאות" />
+        </div>
+        <div>
+          <h4>תוצאות</h4>
+          <p>נבנה אסטרטגיה שמחברת בין תוכן, מכירה, לקוחות והכנסות.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISION ============ -->
+<section class="section vision">
+  <div class="wrap">
+    <div class="vision__head reveal">
+      <span class="eyebrow" style="font-size: 15px; font-weight: 800">למי זה מתאים</span>
+      <h2>הליווי מתאים לך אם...</h2>
+      <p>מאמנת, יועצת, מטפלת או בעלת מומחיות שרוצה להפוך את הידע שלה לעסק רווחי.</p>
+    </div>
+
+    <div class="vision__grid">
+      <!-- 1. חופש / הגשמה - מצפן עם הילה זהובה מרחפת -->
+      <div class="vision__item reveal">
+        <div class="vision__icon">
+          <svg class="vicon" viewBox="0 0 24 24">
+            <circle class="vi-ring" cx="12" cy="12" r="10" style="stroke-width:1.2;opacity:.5"/>
+            <circle class="vi-ring vi-ring--delay" cx="12" cy="12" r="10" style="stroke-width:1.2;opacity:.5"/>
+            <g class="vi-spin">
+              <path d="M12 3 L13.6 9.4 L20 11 L13.6 12.6 L12 19 L10.4 12.6 L4 11 L10.4 9.4 Z" class="fill"/>
+            </g>
+          </svg>
+        </div>
+        <p>את רוצה עסק עם יותר חופש, יציבות והגשמה.</p>
+      </div>
+
+      <!-- 2. שעון מסתובב - עובדת הרבה -->
+      <div class="vision__item reveal">
+        <div class="vision__icon">
+          <svg class="vicon" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9"/>
+            <line class="vi-tick" x1="12" y1="12" x2="12" y2="6" style="stroke-width:2"/>
+            <line x1="12" y1="12" x2="15.5" y2="14" style="stroke-width:2"/>
+            <circle cx="12" cy="12" r="1.2" class="fill"/>
+          </svg>
+        </div>
+        <p>את מרגישה שאת עובדת הרבה, אבל לא מרוויחה מספיק.</p>
+      </div>
+
+      <!-- 3. לקוחות - אנשים עם נקודה דופקת -->
+      <div class="vision__item reveal">
+        <div class="vision__icon">
+          <svg class="vicon" viewBox="0 0 24 24">
+            <g class="vi-bob">
+              <circle cx="7.5" cy="9" r="2.4"/>
+              <path d="M3.5 17 a4 4 0 0 1 8 0"/>
+            </g>
+            <g class="vi-bob vi-bob--late">
+              <circle cx="16.5" cy="9" r="2.4"/>
+              <path d="M12.5 17 a4 4 0 0 1 8 0"/>
+            </g>
+            <circle class="vi-pulse fill" cx="21" cy="4" r="1.6" style="transform-origin:21px 4px;transform-box:fill-box"/>
+          </svg>
+        </div>
+        <p>קשה לך לייצר לקוחות באופן קבוע.</p>
+      </div>
+
+      <!-- 4. תוצאות - עמודות גרף שגדלים וקטנים -->
+      <div class="vision__item reveal">
+        <div class="vision__icon">
+          <svg class="vicon" viewBox="0 0 24 24">
+            <line x1="3" y1="20" x2="21" y2="20" style="stroke-width:1.6"/>
+            <rect class="vi-bar1 fill" x="4" y="12" width="3" height="8" rx="1"/>
+            <rect class="vi-bar2 fill" x="10.5" y="8"  width="3" height="12" rx="1"/>
+            <rect class="vi-bar3 fill" x="17"   y="5"  width="3" height="15" rx="1"/>
+          </svg>
+        </div>
+        <p>יש לך ניסיון, אבל את לא רואה את התוצאות שאת רוצה.</p>
+      </div>
+
+      <!-- 5. שלווה / אסטרטגיה - עיגול נושם -->
+      <div class="vision__item reveal">
+        <div class="vision__icon">
+          <svg class="vicon" viewBox="0 0 24 24">
+            <circle class="vi-breath" cx="12" cy="12" r="9" style="stroke-width:1.2;opacity:.55"/>
+            <circle cx="12" cy="12" r="5.5"/>
+            <circle class="fill" cx="12" cy="12" r="1.6"/>
+          </svg>
+        </div>
+        <p>את רוצה להפסיק להתנהל מתוך לחץ ולעבוד מתוך אסטרטגיה.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT BLACK ============ -->
+<section class="section section--black about" id="about">
+  <div class="wrap about__grid">
+    <div class="reveal">
+      <span class="eyebrow--soft" style="font-size: 19px">נעים מאוד, אני נויה כהן</span>
+      <h2 style="font-family: Rubik">אסטרטגית עסקית ומלווה נשים לבניית עסקים רווחיים</h2>
+      <p class="about__copy">ב‑8 השנים האחרונות ליוויתי מאות נשים עצמאיות שרצו להקים עסק מצליח, מדויק ומשפיע. אני מאמינה שעסק טוב לא נבנה מעוד רעיון או עוד קורס, אלא מבהירות, אסטרטגיה ותהליך עבודה נכון.</p>
+      <p class="about__copy">אני כאן כדי לעזור לך להבין מה בדיוק את מוכרת, למי את מדברת, איך לבנות הצעה שאנשים מבינים מיד, ואיך להפוך את הידע שלך למערכת עסקית שמייצרת תוצאות.</p>
+
+      <h4>הגישה שלי:</h4>
+      <ul class="about__list">
+        <li>לא עוד תיאוריה כללית - אלא עבודה על העסק שלך בפועל.</li>
+        <li>לא עוד עומס של רעיונות - אלא סדר, בחירה ותיעדוף.</li>
+        <li>לא מכירות אגרסיביות - אלא מסר ברור שמייצר אמון.</li>
+        <li>לא עסק שמרגיש כמו מרדף - אלא תהליך שמוביל אותך קדימה.</li>
+      </ul>
+    </div>
+
+    <div class="about__photo reveal">
+      <img src="images/noya-about.png" alt="נויה כהן - דיוקן" />
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section tests" id="testimonials">
+  <div class="wrap">
+    <div class="tests__head reveal">
+      <span class="eyebrow">לקוחות מספרות</span>
+      <h2>נשים שהיו במקום שלך והגיעו לתוצאות מדהימות</h2>
+    </div>
+
+    <div class="tests__viewport">
+      <div class="tests__track" id="testsTrack">
+        <article class="test-card">
+          <div class="stars">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p>״נויה עזרה לי להבין מה אני באמת מוכרת. פתאום הכל נהיה ברור - הקהל, ההצעה, המחיר והדרך לדבר על זה. תוך חודשיים סגרתי יותר לקוחות ממה שסגרתי בחצי שנה.״</p>
+          <cite>מיכל ר.</cite>
+        </article>
+
+        <article class="test-card">
+          <div class="stars">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p>״הגעתי אליה עם עסק מבולגן והרבה פחד ממכירות. יצאתי עם שיטה, ביטחון ותהליך שמרגיש לי טבעי. זה היה אחד הדברים הכי מדויקים שעשיתי לעסק.״</p>
+          <cite>עדי ש.</cite>
+        </article>
+
+        <article class="test-card">
+          <div class="stars">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p>״מה שהכי אהבתי זה שהיא לא נתנה לי פתרונות גנריים. היא הסתכלה על העסק שלי באמת ובנתה איתי דרך שמתאימה לי. היום אני מוכרת הרבה יותר בביטחון.״</p>
+          <cite>קרן ל.</cite>
+        </article>
+
+        <article class="test-card">
+          <div class="stars">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p>״הליווי של נויה החזיר לי את הביטחון לבנות מחיר נכון ולעמוד מאחוריו. תוך חצי שנה הגדלתי את ההכנסה החודשית פי שלוש, בלי לעבוד יותר שעות.״</p>
+          <cite>שירה ב.</cite>
+        </article>
+      </div>
+    </div>
+
+    <div class="tests__nav">
+      <button class="tests__btn" id="testPrev" aria-label="הקודם">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <button class="tests__btn" id="testNext" aria-label="הבא">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+    </div>
+    <div class="tests__dots" id="testDots"></div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="section process" id="process">
+  <div class="wrap">
+    <div class="process__head reveal">
+      <span class="eyebrow">איך זה עובד</span>
+      <h2>תהליך ליווי אישי שמוביל אותך לתוצאות אמיתיות</h2>
+    </div>
+
+    <div class="process__grid">
+      <div class="pcard reveal">
+        <h3>מה את מקבלת?</h3>
+        <ul class="pcheck">
+          <li><span class="pcheck__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>ליווי אישי 1:1 שמותאם לך</span></li>
+          <li><span class="pcheck__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>תוכנית עסקית מותאמת אישית</span></li>
+          <li><span class="pcheck__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>כלים פרקטיים ליישום מיידי</span></li>
+          <li><span class="pcheck__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>תמיכה וליווי צמוד לאורך הדרך</span></li>
+        </ul>
+      </div>
+
+      <div class="pcard reveal">
+        <h3>פגישות הליווי והתהליך</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step__num">01</div>
+            <div><h4>פגישת היכרות ואבחון</h4><p>נבין את העסק שלך, הקהל שלך והמטרות שלך.</p></div>
+          </div>
+          <div class="step">
+            <div class="step__num">02</div>
+            <div><h4>בניית אסטרטגיה עסקית</h4><p>נגדיר הצעה, מסרים, תהליך מכירה ותוכנית פעולה.</p></div>
+          </div>
+          <div class="step">
+            <div class="step__num">03</div>
+            <div><h4>יישום וליווי צמוד</h4><p>ניישם את התוכנית, נדייק תוך כדי ונבנה תהליך יציב קדימה.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ + FORM (one black block) ============ -->
+<section class="section dark-block" id="faq">
+  <div class="wrap">
+    <div class="faq__head reveal">
+      <span class="eyebrow--soft">שאלות נפוצות</span>
+      <h2>יש לך שאלות? קבלי תשובות</h2>
+      <p style="color:var(--gold);font-size:15px;margin-top:6px">כאן תמצאי תשובות לכמה שאלות שחוזרות על הליווי שלי</p>
+    </div>
+
+    <div class="faq">
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">
+          <span>למי הליווי מתאים?</span>
+          <span class="faq__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </button>
+        <div class="faq__a"><div class="faq__a-inner">הליווי מתאים לנשים עצמאיות - מאמנות, יועצות, מטפלות ובעלות מומחיות - שרוצות לבנות עסק עם מסר ברור, הצעה מדויקת ותהליך מכירה יציב, במקום להתנהל מתוך תחושה של עומס וניסוי וטעייה.</div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">
+          <span>כמה זמן הליווי?</span>
+          <span class="faq__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </button>
+        <div class="faq__a"><div class="faq__a-inner">הליווי הוא תהליך של 3 עד 6 חודשים, בהתאם לנקודת ההתחלה ולקצב היישום שלך. בכל מקרה - נבנה יחד תוכנית עבודה ברורה ולוחות זמנים שמתאימים לחיים האמיתיים שלך.</div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">
+          <span>איך הליווי מתנהל?</span>
+          <span class="faq__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </button>
+        <div class="faq__a"><div class="faq__a-inner">פגישות אישיות 1:1 בזום או פרונטלית, חומרים פרקטיים בין הפגישות, ותמיכה שוטפת בוואטסאפ כדי לעזור לך ליישם בלי להישאר עם שאלות פתוחות.</div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false">
+          <span>כמה זה עולה?</span>
+          <span class="faq__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </button>
+        <div class="faq__a"><div class="faq__a-inner">המחיר נקבע לפי היקף הליווי שמתאים לך - לאחר שיחת היכרות קצרה אבנה לך הצעה מותאמת אישית. השיחה עצמה ללא עלות וללא התחייבות.</div></div>
+      </div>
+    </div>
+
+    <div class="faq__cta">
+      <a href="#contact" class="btn">
+        <span>אני רוצה שיחה אישית</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      </a>
+    </div>
+
+    <!-- form -->
+    <div class="form-wrap reveal" id="contact">
+      <div class="form__head" style="margin-bottom:8px">
+        <h2>הגיע הזמן להפסיק לחלום על העסק המתאים לך - ולהתחיל לבנות אותו</h2>
+        <p>השאירי פרטים ונבדוק יחד אם הליווי מתאים לשלב שבו את נמצאת.</p>
+      </div>
+      <form class="form-grid" id="contactForm" novalidate>
+        <div class="field">
+          <label for="name">שם מלא</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="phone">טלפון</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" required />
+        </div>
+        <div class="field field--full">
+          <label for="email">אימייל</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field field--full">
+          <label for="biz">במה את עוסקת היום?</label>
+          <textarea id="biz" name="biz" rows="3"></textarea>
+        </div>
+        <div class="field field--full consent">
+          <label class="consent__row">
+            <input type="checkbox" id="consent" name="consent" required />
+            <span class="consent__box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span class="consent__text">אני מאשר/ת שקראתי והסכמתי לתנאי השימוש ולמדיניות הפרטיות. אני מסכים/ה לקבלת תכנים, עדכונים, הטבות ודיוור שיווקי בדוא”ל וב‍-‍SMS. ידוע לי שאוכל להסיר את עצמי מרשימת התפוצה בכל עת.</span>
+          </label>
+        </div>
+        <div class="field field--full">
+          <button class="btn" type="submit">
+            <span id="submitText">אני רוצה שנדבר</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <div class="brand" style="color:#fff">
+      <div class="brand__mark"><img src="images/noya-mark.png" alt="" /></div>
+      <span>נויה כהן · אסטרטגית עסקית</span>
+    </div>
+    <nav class="foot__links">
+      <a href="#">תקנון אתר</a>
+      <a href="#">מדיניות פרטיות</a>
+      <a href="#">נגישות</a>
+    </nav>
+    <div class="foot__credit">
+      <span>© 2026</span>
+      <a href="#" class="foot__brand">Touch Digital</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING WHATSAPP ============ -->
+<a class="wa-fab" href="https://wa.me/972500000000?text=היי נויה, הגעתי מדף הנחיתה" target="_blank" rel="noopener" aria-label="צור קשר בוואטסאפ">
+  <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.94 11.94 0 0 0 12.05 0C5.5 0 .17 5.32.17 11.87a11.8 11.8 0 0 0 1.6 5.94L0 24l6.34-1.66a11.91 11.91 0 0 0 5.7 1.45h.01c6.55 0 11.88-5.33 11.88-11.88a11.8 11.8 0 0 0-3.4-8.43zM12.05 21.8h-.01a9.93 9.93 0 0 1-5.06-1.38l-.36-.21-3.76.98 1-3.66-.24-.38a9.85 9.85 0 0 1-1.52-5.28c0-5.45 4.44-9.89 9.9-9.89a9.85 9.85 0 0 1 9.89 9.89c0 5.46-4.44 9.93-9.84 9.93zm5.43-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.66.15s-.76.97-.93 1.17-.34.22-.64.07a8.18 8.18 0 0 1-2.4-1.48 9.02 9.02 0 0 1-1.66-2.07c-.17-.3-.02-.45.13-.6.13-.13.3-.34.45-.51.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.07-.15-.66-1.6-.9-2.18-.24-.58-.49-.5-.66-.51l-.57-.01c-.2 0-.5.07-.77.36-.26.3-1 .97-1 2.36s1.02 2.74 1.16 2.93c.15.2 2.02 3.08 4.9 4.32.69.3 1.22.48 1.64.61.69.22 1.31.19 1.81.12.55-.08 1.7-.7 1.93-1.36.24-.66.24-1.23.17-1.36-.07-.13-.27-.2-.57-.35z"/></svg>
+</a>
+
+<!-- ============ COOKIE BANNER ============ -->
+<div class="cookie" id="cookieBanner" role="dialog" aria-live="polite">
+  <div class="cookie__title">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/><circle cx="9" cy="10" r=".8" fill="currentColor"/><circle cx="14" cy="7" r=".8" fill="currentColor"/><circle cx="15" cy="14" r=".8" fill="currentColor"/><circle cx="10" cy="16" r=".8" fill="currentColor"/></svg>
+    אנחנו משתמשים בעוגיות
+  </div>
+  <p>האתר משתמש בעוגיות כדי לשפר את חוויית הגלישה שלך. בלחיצה על ”אישור“ את מאשרת את השימוש בהם בהתאם ל<a href="#">מדיניות הפרטיות</a> שלנו.</p>
+  <div class="cookie__row">
+    <button class="btn btn--ghost" id="cookieDecline">רק הכרחיות</button>
+    <button class="btn" id="cookieAccept">אישור הכל</button>
+  </div>
+</div>
+
+<script>
+  // ====== Scroll reveal ======
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // ====== FAQ accordion ======
+  document.querySelectorAll('.faq__item').forEach(item=>{
+    const q = item.querySelector('.faq__q');
+    const a = item.querySelector('.faq__a');
+    q.addEventListener('click', ()=>{
+      const open = item.classList.toggle('is-open');
+      q.setAttribute('aria-expanded', open ? 'true' : 'false');
+      a.style.maxHeight = open ? (a.scrollHeight + 'px') : '0px';
+    });
+  });
+
+  // ====== Testimonials carousel ======
+  (function(){
+    const track = document.getElementById('testsTrack');
+    const cards = track.querySelectorAll('.test-card');
+    const prev = document.getElementById('testPrev');
+    const next = document.getElementById('testNext');
+    const dotsEl = document.getElementById('testDots');
+
+    let index = 0;
+    function perView(){
+      const w = window.innerWidth;
+      if(w <= 640) return 1;
+      if(w <= 880) return 2;
+      return 3;
+    }
+    function maxIndex(){
+      return Math.max(0, cards.length - perView());
+    }
+    function renderDots(){
+      const total = maxIndex() + 1;
+      dotsEl.innerHTML = '';
+      for(let i=0;i<total;i++){
+        const d = document.createElement('span');
+        d.className = 'tests__dot' + (i===index ? ' is-active':'');
+        d.addEventListener('click', ()=>{ index = i; update(); });
+        dotsEl.appendChild(d);
+      }
+    }
+    function update(){
+      const card = cards[0];
+      const style = getComputedStyle(card);
+      const gap = parseFloat(getComputedStyle(track).gap) || 24;
+      const step = card.offsetWidth + gap;
+      // RTL: track moves to the LEFT in negative X (which visually shifts RTL content)
+      track.style.transform = `translateX(${ index * step }px)`;
+      renderDots();
+    }
+    prev.addEventListener('click', ()=>{ // visually goes to previous (right side in RTL)
+      index = Math.max(0, index - 1); update();
+    });
+    next.addEventListener('click', ()=>{
+      index = Math.min(maxIndex(), index + 1); update();
+    });
+    window.addEventListener('resize', ()=>{ index = Math.min(index, maxIndex()); update(); });
+    update();
+  })();
+
+  // ====== About scroll-bright text ======
+  (function(){
+    const paras = document.querySelectorAll('.about__copy');
+    if(!paras.length) return;
+    const allSpans = [];
+    paras.forEach(p=>{
+      const text = p.textContent;
+      p.textContent = '';
+      const parts = text.split(/(\s+)/);
+      parts.forEach(part=>{
+        if(!part) return;
+        if(/^\s+$/.test(part)){ p.appendChild(document.createTextNode(part)); return; }
+        const s = document.createElement('span');
+        s.className = 'w';
+        s.textContent = part;
+        p.appendChild(s);
+        allSpans.push(s);
+      });
+    });
+    function update(){
+      const vh = window.innerHeight;
+      const triggerY = vh * 0.62;
+      allSpans.forEach(s=>{
+        const r = s.getBoundingClientRect();
+        if(r.top < triggerY) s.classList.add('lit');
+        else s.classList.remove('lit');
+      });
+    }
+    window.addEventListener('scroll', update, {passive:true});
+    window.addEventListener('resize', update);
+    update();
+  })();
+
+  // ====== Cookie banner ======
+  (function(){
+    const banner = document.getElementById('cookieBanner');
+    const accept = document.getElementById('cookieAccept');
+    const decline = document.getElementById('cookieDecline');
+    const key = 'noya_cookie_v1';
+    if(!localStorage.getItem(key)){
+      setTimeout(()=>banner.classList.add('is-visible'), 900);
+    }
+    function close(val){
+      localStorage.setItem(key, val);
+      banner.classList.remove('is-visible');
+    }
+    accept.addEventListener('click', ()=>close('accepted'));
+    decline.addEventListener('click', ()=>close('declined'));
+  })();
+
+  // ====== Form ======
+  document.getElementById('contactForm').addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const f = e.target;
+    const consentField = document.querySelector('.consent');
+    const t = document.getElementById('submitText');
+    const origText = 'אני רוצה שנדבר';
+    if(!f.name.value.trim() || !f.phone.value.trim() || !f.email.value.trim()){
+      t.textContent = 'נא למלא את כל השדות';
+      setTimeout(()=>{ t.textContent = origText; }, 1800);
+      return;
+    }
+    if(!f.consent.checked){
+      consentField.classList.add('is-invalid');
+      t.textContent = 'יש לאשר תנאי שימוש ודיוור';
+      setTimeout(()=>{ t.textContent = origText; consentField.classList.remove('is-invalid'); }, 2200);
+      return;
+    }
+    t.textContent = 'תודה! חזרה אלייך בקרוב';
+    f.reset();
+    setTimeout(()=>{ t.textContent = origText; }, 2500);
+  });
+</script>
+</body>
+</html>
